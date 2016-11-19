@@ -43,6 +43,11 @@ public class Crab extends Actor
             removeTouching (Worm.class);
             score = score + 10;
         }
+        
+        if ( isTouching (Lobster.class))
+        {
+            score = 0;
+        }
     }    
     
     public void setScore()
