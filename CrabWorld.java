@@ -8,7 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CrabWorld extends World
 {
+<<<<<<< HEAD
     Label scoreBoard = new Label("Score : 0");
+=======
+    Label scoreBoard = new Label("Worms : 0");
+>>>>>>> parent of c7495d2... Delete CrabWorld.java
     int nowcount = 0;
     /**
      * Constructor for objects of class MyWorld.
@@ -42,7 +46,11 @@ public class CrabWorld extends World
     
     public void act()
     {
+<<<<<<< HEAD
         scoreBoard.setText("Score : "+ Crab.score);
+=======
+        scoreBoard.setText("Worms : "+ Crab.score);
+>>>>>>> parent of c7495d2... Delete CrabWorld.java
         
         if ( Crab.score % 100 == 0  &&! (nowcount == Crab.score))
         {
