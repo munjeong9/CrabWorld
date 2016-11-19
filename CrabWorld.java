@@ -1,50 +1,53 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
 /**
- * Write a description of class Lobster here.
+ * Write a description of class MyWorld here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Lobster extends Actor
+public class CrabWorld extends World
 {
+    Label scoreBoard = new Label("Score : 0");
+    int nowcount = 0;
     /**
-     * Act - do whatever the Lobster wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor for objects of class MyWorld.
+     * 
      */
-    public void act() 
-    {
-        if (isAtEdge () )
-        {
-            turn(17);
-        }
-        
-        if ( Greenfoot.getRandomNumber (100) < 10)
-        {
-            turn(Greenfoot.getRandomNumber(90) - 45);
-        }
-        
-        if(getOneObjectAtOffset(0, 0, Lobster.class) != null)
-       {
-            getWorld().removeObject(this);
-       }
-        move(5);
-        eatCrab();
-        
+    public CrabWorld()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        addObject(new Crab(), 50, 50);
+        addObject(new Worm(), 100, 100);
+        addObject(new Lobster(), 300, 300);
+        addObject(new turtle(), 100, 200);
+        addObject(new Worm(), 99, 57);
+        addObject(new Worm(), 299, 78);
+        addObject(new Worm(), 499, 300);
+        addObject(new Worm(), 388, 390);
+        addObject(new Worm(), 100, 390);
+        addObject(new Worm(), 150, 300);
+        addObject(new Worm(), 278, 200);
+        addObject(new Worm(), 500, 250);
+        addObject(new Worm(), 570, 170);
+        addObject(new Worm(), 420, 350);
+        addObject(new Worm(), 530, 80);
+        addObject(new Worm(), 400, 160);
+            
+      
+        addObject(scoreBoard, 600, 20);
+       
     }
     
-    public void eatCrab()
+    public void act()
     {
-       Actor Crab = getOneIntersectingObject( Crab.class);
-      if ( isTouching (Crab.class) )
+        scoreBoard.setText("Score : "+ Crab.score);
+        
+        if ( Crab.score % 100 == 0  &&! (nowcount == Crab.score))
         {
-           removeTouching (Crab.class);
-           World CrabWorld = getWorld();
-           GameOver gameover = new GameOver();
-           CrabWorld.addObject(gameover, CrabWorld.getWidth()/2, CrabWorld.getHeight()/2);
+            addObject ( new Lobster(),200, 300);
+            nowcount =  Crab.score;
         }
-       
-    }   
-    
+    }
 }
