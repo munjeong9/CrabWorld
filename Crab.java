@@ -43,11 +43,6 @@ public class Crab extends Actor
             removeTouching (Worm.class);
             score = score + 10;
         }
-        
-        if ( isTouching (Lobster.class))
-        {
-            score = 0;
-        }
     }    
     
     public void setScore()
@@ -58,5 +53,6 @@ public class Crab extends Actor
             Victory victory = new Victory();
             CrabWorld.addObject (victory, CrabWorld.getWidth()/2, CrabWorld.getHeight()/2);
         }
+        
     }
 }

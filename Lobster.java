@@ -25,10 +25,10 @@ public class Lobster extends Actor
             turn(Greenfoot.getRandomNumber(90) - 45);
         }
         
-        if(getOneObjectAtOffset(0, 0, Lobster.class) != null)
-       {
+        if(getOneObjectAtOffset (0, 0, turtle.class) != null)
+        {
             getWorld().removeObject(this);
-       }
+        }
         move(5);
         eatCrab();
         
